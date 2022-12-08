@@ -32,35 +32,37 @@ Pygame 활용
 ### * 화면에 점수, 플레이어, 장애물 등을 출력을 해보도록 한다.
 ### * 피버 게이지를 구현해보도록 한다.
    
+###   
 ---
-***   
+***
+###
 # <본론>
 ## 1) 게임 구성 요소 소개
 ### 1. 게임 플레이어
 #### * 평상시 커비
-<img src = "cubby_(1_1)" width="100px" height="100px"></img><br/>
+<img src = "cubby_(1_1).png" width="100px" height="100px"></img><br/>
 #### * 음식을 먹은 커비
-<img src = "cubby_2" width="100px" height="100px"></img><br/>
+<img src = "cubby_2.png" width="100px" height="100px"></img><br/>
 
 
 ### 2. 게임 장애물
 #### 올바른 음식 재료
 ##### * 떡(tteok)
-<img src = "tteok_(1)" width="100px" height="100px"></img><br/>
+<img src = "tteok_(1).png" width="100px" height="100px"></img><br/>
 
 ##### * 파(green_onion)
-<img src = "green_onion(1)" width="100px" height="100px"></img><br/>
+<img src = "green_onion(1).png" width="100px" height="100px"></img><br/>
 
 ##### * 고추장(red_pepper_paste)
-<img src = "red_pepper_paste(1)" width="100px" height="100px"></img><br/>
+<img src = "red_pepper_paste(1).png" width="100px" height="100px"></img><br/>
 
 ##### * 오뎅(fish_cake)
-<img src = "fish_cake(1)" width="100px" height="100px"></img><br/>
+<img src = "fish_cake(1).png" width="100px" height="100px"></img><br/>
 
    
 #### 3. 잘못된 음식 재료
 ##### * 민초
-<img src = "trash_(1)" width="100px" height="100px"></img><br/>
+<img src = "trash_(1).png" width="100px" height="100px"></img><br/>
 
 
 ### 2. 게임 게이지
@@ -76,6 +78,7 @@ Pygame 활용
 ### 3. 화면 screen
 #### * 좌상에 빨간글씨로, 남은 시간이 나타납니다!
 ####  그 오른쪽에는 파란글씨로, 현재까지의 점수가 나타납니다!
+<img src = "score.png" width="100px" height="100px"></img><br/>
 #### * 우상에는 게이지가 표시되어 있습니다!
 ####  그 아래에 빨간글씨로 먹어야하는 음식재료와,
 ####  검은글씨로 이미 먹은 음식재료,
@@ -84,10 +87,16 @@ Pygame 활용
 
 ### 
    
+---
+
+###
+
 ## 2) 게임 방법 소개
 ### 1. 게임 시작 버튼을 누릅니다!
 ### 2. 키보드의 좌, 우 방향키를 이용해 하늘에서 떨어지는 음식을 먹읍시다!
 ###  커비는 올바른 음식을 먹을수록 크기가 커져요!
+<img src = "total_1.png" width="100px" height="100px"></img><br/>
+
 ### 3. 올바른 음식 재료를 먹으면 +5점을 얻을 수 있어요!
 ###  올바른 음식 재료인 떡, 파, 고추장, 어묵을 종류 하나씩 먹으면 떡볶이 하나가 완성되면서, 1000점을 획득할 수 있어요!
 ### 4. 잘못된 음식 재료인 **민초**를 먹으면 커비가 배탈나요! 🤮🤮 
@@ -125,3 +134,4 @@ Pygame 활용
 # 참고 사이트
 * https://velog.io/@wltn39/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EA%B2%8C%EC%9E%84-1-%EB%98%A5%ED%94%BC%ED%95%98%EA%B8%B0
 * https://blog.naver.com/PostView.nhn?blogId=topblade71&logNo=221507282811&parentCategoryNo=&categoryNo=13&viewDate=&isShowPopularPosts=true&from=search
+* https://kr.freepik.com/free-vector/diner-interior-illustration_3296515.htm
