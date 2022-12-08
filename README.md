@@ -40,7 +40,7 @@ Pygame 활용
 ## 1) 게임 구성 요소 소개
 ### 1. 게임 플레이어
 #### * 평상시 커비
-<img src = "cubby_(1_1).png" width="100px" height="100px"></img><br/>
+<img src = "cubby_(1_1).jpg" width="100px" height="100px"></img><br/>
 #### * 음식을 먹은 커비
 <img src = "cubby_2.png" width="100px" height="100px"></img><br/>
 
@@ -76,9 +76,10 @@ Pygame 활용
 
 
 ### 3. 화면 screen
+<img src = "score.png" width="640px" height="360px"></img><br/>
+
 #### * 좌상에 빨간글씨로, 남은 시간이 나타납니다!
 ####  그 오른쪽에는 파란글씨로, 현재까지의 점수가 나타납니다!
-<img src = "score.png" width="100px" height="100px"></img><br/>
 #### * 우상에는 게이지가 표시되어 있습니다!
 ####  그 아래에 빨간글씨로 먹어야하는 음식재료와,
 ####  검은글씨로 이미 먹은 음식재료,
