@@ -32,35 +32,37 @@ Pygame 활용
 ### * 화면에 점수, 플레이어, 장애물 등을 출력을 해보도록 한다.
 ### * 피버 게이지를 구현해보도록 한다.
    
+###   
 ---
-***   
+***
+###
 # <본론>
 ## 1) 게임 구성 요소 소개
 ### 1. 게임 플레이어
 #### * 평상시 커비
-<img src = "cubby_(1_1)" width="100px" height="100px"></img><br/>
+<img src = "cubby_1_(1_1).png" width="100px" height="100px"></img><br/>
 #### * 음식을 먹은 커비
-<img src = "cubby_2" width="100px" height="100px"></img><br/>
+<img src = "cubby_2.png" width="100px" height="100px"></img><br/>
 
 
 ### 2. 게임 장애물
 #### 올바른 음식 재료
 ##### * 떡(tteok)
-<img src = "tteok_(1)" width="100px" height="100px"></img><br/>
+<img src = "tteok_(1).png" width="100px" height="100px"></img><br/>
 
 ##### * 파(green_onion)
-<img src = "green_onion(1)" width="100px" height="100px"></img><br/>
+<img src = "green_onion(1).png" width="100px" height="100px"></img><br/>
 
 ##### * 고추장(red_pepper_paste)
-<img src = "red_pepper_paste(1)" width="100px" height="100px"></img><br/>
+<img src = "red_pepper_paste(1).png" width="100px" height="100px"></img><br/>
 
 ##### * 오뎅(fish_cake)
-<img src = "fish_cake(1)" width="100px" height="100px"></img><br/>
+<img src = "fish_cake(1).png" width="100px" height="100px"></img><br/>
 
    
 #### 3. 잘못된 음식 재료
 ##### * 민초
-<img src = "trash_(1)" width="100px" height="100px"></img><br/>
+<img src = "trash_(1).png" width="100px" height="100px"></img><br/>
 
 
 ### 2. 게임 게이지
@@ -74,8 +76,12 @@ Pygame 활용
 
 
 ### 3. 화면 screen
+<img src = "score.png" width="300px" height="102px"></img><br/>
+
 #### * 좌상에 빨간글씨로, 남은 시간이 나타납니다!
 ####  그 오른쪽에는 파란글씨로, 현재까지의 점수가 나타납니다!
+
+<img src = "gauge+dish.png"></img><br/>
 #### * 우상에는 게이지가 표시되어 있습니다!
 ####  그 아래에 빨간글씨로 먹어야하는 음식재료와,
 ####  검은글씨로 이미 먹은 음식재료,
@@ -84,10 +90,16 @@ Pygame 활용
 
 ### 
    
+---
+
+###
+
 ## 2) 게임 방법 소개
 ### 1. 게임 시작 버튼을 누릅니다!
 ### 2. 키보드의 좌, 우 방향키를 이용해 하늘에서 떨어지는 음식을 먹읍시다!
 ###  커비는 올바른 음식을 먹을수록 크기가 커져요!
+<img src = "total_1.png" width="100px" height="100px"></img><br/>
+
 ### 3. 올바른 음식 재료를 먹으면 +5점을 얻을 수 있어요!
 ###  올바른 음식 재료인 떡, 파, 고추장, 어묵을 종류 하나씩 먹으면 떡볶이 하나가 완성되면서, 1000점을 획득할 수 있어요!
 ### 4. 잘못된 음식 재료인 **민초**를 먹으면 커비가 배탈나요! 🤮🤮 
@@ -98,10 +110,61 @@ Pygame 활용
 ### 4. 피버게이지가 일정 이상이 쌓이면 10초간 피버타임에 들어가게 되어요!
 ###  피버타임 동안은 big-커비가 화면에 나타납니다!
 ###  피버타임동안에는 음식재료를 마음대로 먹도록 해요!
+<img src = "pull_gauge.png" width="640px" height="360px"></img><br/>
+
 ### 5. 주어진 제한시간이 끝나면 게임이 종료됩니다!   
    
 ### ※ TIP: 재료 한개당 +5점, 떡볶이 하나 완성당 +1000점을 얻을 수 있으니
 ###  아무 재료를 모으기보다는, 필요한 재료 위주로 모으도록 해요!
+
+###
+
+---
+
+## 3) 사용한 라이브러리들
+### * pygame
+### * random
+### * time
+
+---
+ 
+## 4) 코드 소개
+
+### 게임 설정 부분
+#### 1. 화면 기본 설정
+##### screen_width = 1920, screen_height = 1080
+###
+###
+#### 2. 캐릭터 크기 설정
+##### pygame.image.load, pygame.transform.scale, pygame.image.save 사용
+###
+#### 3. 낙하물 설정(떡, 파, 고추장, 어묵, 민초)
+###
+#### 4. time 설정
+##### 변수 설명
+##### * total_time: 제한시간
+##### * sick: 커비가 민초를 안먹었는지 확인해주는 변수.
+#####  True일때 민초를 먹지 않았다고 설정된다. True일 때 민초를 먹으면 아프게 된다.
+###
+#### 5. gauge 설정
+#### 6. change_eat_size(): 낙하물을 먹었을 때 플레이어 사이즈를 변경하는 부분
+
+### 
+
+### 게임 시작
+#### 1. 왼쪽키 누르면 플레이어가 왼쪽으로, 오른쪽키 누르면 플레이어가 오른쪽으로 이동(event.type과 event.key 사용)
+#### 2. 플레이어 or 낙하물이 화면밖에 있다면 화면 안으로 가게끔 하기(random 사용)
+#### 3. 플레이어와 낙하물 충돌처리(점수, 게이지 조작)
+##### * 커비가 아픈상태가 아니여야하고,
+#####  중복처리를 방지하기 위해 동일 낙하물을 맞은지 0.5초이내가 아니여야하며(time.time() 사용),
+#####  충돌상태(character_rect.colliderect(낙하물)이라면 실행된다.
+###
+#### 4. 민초를 먹은 상태라면, 점수를 깎고 아픈상태를 주도록 한다. 또한 time.time()을 이용해 10초동안은 다른 음식을 못먹는 상태로 바꾼다.
+#### 5. 피버게이지가 특정 x값 이하에 위치하게 되면 피버타임을 발동한다. 이때는 민초를 먹어도 되게끔 설정한다.(gauge_count = 1)
+#### 6. 요리완성시 떡볶이 카운트 +1하고, 모은 재료들 초기화하기
+###
+### 화면에 출력하기 (screen.bilt 사용)
+#### * 배경, 캐릭터, 낙하물, 기타 UI 텍스트 출력하기(game_font.render 사용)
 
 ###
 
@@ -112,8 +175,16 @@ Pygame 활용
 
 
 # <결론>
+## 새로운 파이썬 라이브러리와 여러 함수를 사용할 수 있는 기회가 되었다. pygame의 경우 수업중에도 다뤄본적이 없었어서 불안했었는데 구글에 잘 나와있어서 다행이었다. 
 
+## 어려웠던 점
+### * pygame 라이브러리를 사용할 때 캐릭터의 크기를 늘리고 줄이는 부분이 어려웠었다. 
+### * 낙하물을 맞았는데 점수가 맞는 판정일때 거의 0.1초 간격으로 점수가 늘어나서 이를 어떻게 처리를 해야할까 고민을 했었다. 그 결과 처음 맞는 판정일때의 시간을 first_time이라고 했을 때,  first_time = time.time()으로 지정하고, time.time() - first.time() > 0.5일때까지 무적상태를 지정하였다. 즉 처음 맞는 판정일때 0.5초간은 무적상태를 지정한 것이다.
+### * 피버타임 지정하는 것도 어려웠다. 여기도 피버타임 판정을 한번만 해야하고, 10초간 유지해야 할 필요가 있었다. 또한 sick 상태일때가 되지않도록 설정도 해야하고 여러 변수를 추가하고, 상태 조건을 추가하는 등의 작업이 일일히 들어가야했다.
 
+## 개선할 점
+### * 게임을 시작할 때, 처음에 게임시작 버튼, 게임정보 버튼, 제작자 정보가 담긴 UI를 추가하고 싶었다. 그런데 시간부족으로 추가하지 못해 아쉽다. 시간이 더 주어진다면 이부분을 추가하고 싶다,
+### * 음식재료와 민초를 동시에 먹었을 때, 해당 음식재료가 삭제가 안되는 버그가 있다. 이는 음식재료 삭제되는 타이밍과 획득되는 타이밍이 겹쳐서 생긴 일 같다. 다음에 이 게임을 손볼 일이 있다면, 이 버그를 고쳐보고 싶다.
 
 ###
 
@@ -125,3 +196,4 @@ Pygame 활용
 # 참고 사이트
 * https://velog.io/@wltn39/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EA%B2%8C%EC%9E%84-1-%EB%98%A5%ED%94%BC%ED%95%98%EA%B8%B0
 * https://blog.naver.com/PostView.nhn?blogId=topblade71&logNo=221507282811&parentCategoryNo=&categoryNo=13&viewDate=&isShowPopularPosts=true&from=search
+* https://kr.freepik.com/free-vector/diner-interior-illustration_3296515.htm
